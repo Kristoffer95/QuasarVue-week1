@@ -1,6 +1,6 @@
 <template>
   <div>
-    this is api Interface
+    this is api Frontend
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 import { defineComponent } from '@vue/composition-api'
 
 export default defineComponent({
-  name: 'PageApiInterface',
+  name: 'PageFrontend',
 
   setup () {
     return {}

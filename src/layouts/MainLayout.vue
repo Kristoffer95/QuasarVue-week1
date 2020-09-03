@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main-layout w-screen h-screen">
     <Header />
 
     <div>
@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import EssentialLink from 'components/EssentialLink.vue'
+import 'assets/css/tailwind.css'
 import Header from 'components/Header.vue'
 
 const linksData = [
@@ -61,7 +61,7 @@ import { defineComponent, ref } from '@vue/composition-api'
 
 export default defineComponent({
   name: 'MainLayout',
-  components: { EssentialLink, Header },
+  components: { Header },
   setup () {
     const leftDrawerOpen = ref(false)
     const essentialLinks = ref(linksData)
@@ -76,3 +76,9 @@ export default defineComponent({
   }
 })
 </script>
+
+<style>
+.main-layout {
+  background-color: #f5f5fa;
+}
+</style>

@@ -1,8 +1,8 @@
 <template>
   <div class="interface-form bg-white rounded-lg pt-8 relative">
-    <span class="px-12 text-bold text-xl">{{ componentData.title }}</span>
+    <span class="custom-padding text-bold text-xl">{{ componentData.title }}</span>
     
-    <div class="px-12 w-full flex flex-col mt-8">
+    <div class="custom-padding w-full flex flex-col mt-8">
       <div class="flex flex-col ">
         <span class="interface-form-label font-bold">Name</span>
         <input class="interface-form-input outline-none"
@@ -32,7 +32,7 @@
       </div>
     </div>
 
-    <div class="px-12 w-full mt-2">
+    <div class="custom-padding w-full mt-2">
       <div class="w-2/5 flex justify-between">
         <span class="interface-form-tab cursor-pointer font-semibold">Example 1</span>
         <span class="interface-form-tab cursor-pointer font-semibold">Example 2</span>
@@ -42,7 +42,7 @@
         name="outputs" ></textarea>
     </div>
 
-    <div class="interface-form-footer px-12 w-full flex justify-end pb-6 mt-2">
+    <div class="interface-form-footer custom-padding w-full flex justify-end pb-6 mt-2">
       <Button class="interface-form-button mt-4"
         text="Save" @click.native=""/>
     </div>
@@ -77,6 +77,11 @@ export default defineComponent({
 </script>
 
 <style>
+.custom-padding {
+  /* padding: auto 28px auto 24px; */
+  padding-left: 24px;
+  padding-right: 28px;
+}
 .interface-form{
   width: 500px;
   /* height: 00px; */

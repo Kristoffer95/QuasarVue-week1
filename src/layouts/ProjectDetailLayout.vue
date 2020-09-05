@@ -1,5 +1,6 @@
 <template>
   <div class="project-detail w-screen h-screen">
+    
     <!-- <Header /> -->
 
     <div>

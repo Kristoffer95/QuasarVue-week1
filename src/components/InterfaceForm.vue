@@ -78,13 +78,11 @@ export default defineComponent({
 
 <style>
 .custom-padding {
-  /* padding: auto 28px auto 24px; */
   padding-left: 24px;
   padding-right: 28px;
 }
 .interface-form{
   width: 500px;
-  /* height: 00px; */
   border: 1px solid #ececf2;
 }
 .interface-form-label {

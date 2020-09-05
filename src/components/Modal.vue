@@ -8,7 +8,7 @@
     :componentData="componentData"
     v-on-clickaway="hideModal"
     />
-    <i class="icon-close text-2xl absolute" @click="hideModal"/>
+    <i class="modal-close-icon icon-close text-2xl absolute" @click="hideModal"/>
   </div>
 </div>
 </template>
@@ -57,29 +57,21 @@ export default defineComponent({
 </script>
 
 <style>
-/* .close-icon {
-  height:inherit;
-  top: -40px;
-  right: -40px;
-  border: 1px solid black;
-  border-radius: 100%;
-} */
-.icon-close {
-  top: -40px;
-  right: -40px;
+.modal-close-icon {
+  top: 5px;
+  right: 5px;
 }
 
-.icon-close::before {
+.modal-close-icon::before {
+  display:initial;
   cursor: pointer;
-  margin: 0 !important;
+  margin: 0px !important;
   padding: 5px !important;
   color: #718096;
-  border: 1px solid #718096;
   border-radius: 100%;
 }
-.icon-close:hover::before {
+.modal-close-icon:hover::before {
   color: black;
-  border: 1px solid black;
 }
 
 </style>

@@ -11,6 +11,12 @@ const routes: RouteConfig[] = [
       { name: 'bug', path: '/bug', component: () => import('pages/Bug.vue') }
     ]
   },
+  {
+    path: '/project-detail',
+    component: () => import('layouts/ProjectDetailLayout.vue'),
+    children: [
+    ]
+  },
 
   // Always leave this as last one,
   // but you can also remove it

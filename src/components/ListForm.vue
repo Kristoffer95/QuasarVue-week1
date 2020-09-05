@@ -1,46 +1,30 @@
 <template>
   <div class="interface-form bg-white rounded-lg pt-5 relative">
     <span class="custom-padding text-bold text-xl">{{ componentData.title }}</span>
-    
+
     <div class="custom-padding w-full flex flex-col mt-8">
-      <div class="flex flex-col ">
-        <span class="interface-form-label font-bold">Name</span>
+      <div class="flex items-center">
+        <input class="interface-form-input outline-none mr-2" v-model="newModule"
+          type="checkbox" placeholder="Module name">
+        <span class="interface-form-label font-bold cursor-pointer" @click="newModule = !newModule">Create new module</span>
+      </div>
+      <div class="flex flex-col mt-2" v-if="newModule">
+        <span class="interface-form-label font-bold">Module name</span>
         <input class="interface-form-input outline-none"
-          type="text" placeholder="Enter name">
+          type="text" placeholder="Module name">
+      </div>
+      <div class="flex flex-col mt-2" v-else>
+        
+        <Dropdown />
       </div>
       <div class="flex flex-col mt-2">
-        <span class="interface-form-label font-bold">Description</span>
+        <span class="interface-form-label font-bold">List name</span>
         <input class="interface-form-input outline-none"
-          type="text" placeholder="Enter description">
+          type="text" placeholder="List name">
       </div>
-      <div class="flex flex-col mt-2">
-        <span class="interface-form-label font-bold">Path</span>
-        <input class="interface-form-input outline-none"
-          type="text" placeholder="Enter path">
-      </div>
-      <div class="flex flex-col mt-2">
-        <span class="interface-form-label font-bold">Params</span>
-        <input class="interface-form-input outline-none"
-          type="text" placeholder="Enter params">
-      </div>
-      <div class="flex flex-col mt-2">
-        <span class="interface-form-label textarea-label font-bold">Outputs</span>
-        <textarea class="w-full h-full border p-2 outline-none rounded-lg"
-          placeholder="Api response"
-          rows="3"
-          name="outputs" ></textarea>
-      </div>
+      
     </div>
 
-    <div class="custom-padding w-full mt-2">
-      <div class="w-2/5 flex justify-between">
-        <span class="interface-form-tab cursor-pointer font-semibold">Example 1</span>
-        <span class="interface-form-tab cursor-pointer font-semibold">Example 2</span>
-      </div>
-      <textarea class="w-full h-full border p-2 mt-2 outline-none rounded-lg"
-        rows="3"
-        name="outputs" ></textarea>
-    </div>
 
     <div class="interface-form-footer custom-padding w-full flex justify-end pb-6 mt-2">
       <Button class="interface-form-button mt-4"
@@ -57,9 +41,10 @@ import Button from './Button.vue'
 
 
 export default defineComponent({
-  name: 'InterfaceForm',
+  name: 'ListForm',
   components: {
-    Button
+    Button,
+    Dropdown: () => import('components/Dropdown.vue')
   },
   props: {
     componentData: {
@@ -68,7 +53,9 @@ export default defineComponent({
     }
   },
   setup () {
+    let newModule = ref(false)
     return {
+      newModule
     }
   },
   methods: {

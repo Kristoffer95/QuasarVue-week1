@@ -1,7 +1,7 @@
 <template>
   <div class="dropdown-wrapper cursor-pointer relative" v-on-clickaway="hide">
     <div class="dropdown-button flex justify-center items-center rounded-md" @click="toggle">
-      <div class="dropdown-title flex-1 flex items-center pl-5">
+      <div class="dropdown-title flex-1 flex items-center pl-5 font-bold">
         <span>{{ selected === '' ? data[0] : selected }}</span>
       </div>
       <div class="dropdown-icon">
@@ -9,9 +9,9 @@
       </div>
     </div>
 
-    <div class="dropdown-list-wrapper absolute" v-if="isClicked">
+    <div class="dropdown-list-wrapper absolute bg-white" v-if="isClicked">
       <div class="dropdown-list-inner-wrapper rounded-md mt-2 flex flex-col">
-        <span class="dropdown-list-inner-text pl-5 leading-7 py-1 hover:font-bold" 
+        <span class="dropdown-list-inner-text pl-5 leading-7 py-1 font-bold" 
           :class="{'border-t' : index > 0}"
           @click="select(value)"
           v-for="(value, index) in data">
@@ -63,6 +63,7 @@ export default defineComponent({
 <style >
 .dropdown-list-wrapper {
   width: 130px;
+  z-index: 30;
 }
 .dropdown-wrapper {
   width: 130px;
@@ -76,7 +77,7 @@ export default defineComponent({
 }
 .dropdown-button .dropdown-title {
   margin-top: -2px;
-  color: #1c1d21;
+  color: #20253D;
   font-size: 16px;
 }
 .dropdown-button .dropdown-icon {
@@ -104,6 +105,7 @@ export default defineComponent({
 .dropdown-list-inner-wrapper {
   border: 1px solid #ececf2;
   background-color: white;
+  color: #20253D;
 }
 .dropdown-list-inner-text:hover {
   color: #5e81f4;

@@ -24,7 +24,8 @@ export default defineComponent({
   name: 'Header',
   mixins: [ clickaway ],
   components: {
-    InterfaceForm: () => import(`components/InterfaceForm.vue`)
+    InterfaceForm: () => import(`components/InterfaceForm.vue`),
+    ListForm: () => import(`components/ListForm.vue`)
   },
   setup () {
     const modalStatus = ref(false)
@@ -56,8 +57,8 @@ export default defineComponent({
 
 <style>
 .modal-close-icon {
-  top: 5px;
-  right: 5px;
+  top: 15px;
+  right: 15px;
 }
 
 .modal-close-icon::before {

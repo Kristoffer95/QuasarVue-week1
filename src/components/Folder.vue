@@ -6,15 +6,14 @@
         :class="openedFolder.filter(i => i === folderIndex).length > 0 ? 'icon-folder_open' : 'icon-folder'"
         @click="toggleFolder(folderIndex)">
       </i>
-      <span class="cursor-pointer text-lg" @click="toggleFolder(folderIndex)">
+      <span class="folder-name cursor-pointer ml-5" @click="toggleFolder(folderIndex)">
         {{ folder.title | capitalize}}
       </span>
 
-      <div class="pl-5 py-1"  
+      <div  class="pl-5 py-1" 
         v-if="openedFolder.filter(i => i === folderIndex).length > 0 ? true : false"
         v-for="(file, fileIndex) in folder.data" :key="fileIndex">
-        <i class="icon-insert_drive_file cursor-pointer text-lg"></i>
-        <span class="cursor-pointer text-md ">{{ file | capitalize }}</span>
+        <FolderFile :file="file"/>
       </div>
     </div>
   </div>
@@ -26,6 +25,9 @@ import { defineComponent, ref } from '@vue/composition-api'
 
 export default defineComponent({
   name: 'Dropdown',
+  components: {
+    FolderFile: () => import('components/FolderFile.vue')
+  },
   props: {
     data: {
       type: Array,
@@ -61,4 +63,9 @@ export default defineComponent({
 })
 </script>
 
+<style scoped>
+  .folder-name {
+    font-size: 16px;
+  }
+</style>
 

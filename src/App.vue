@@ -5,6 +5,7 @@
   </div>
 </template>
 <script lang="ts">
+import 'assets/fontello/css/fontello.css'
 import { defineComponent } from '@vue/composition-api'
 import Modal from 'components/Modal.vue'
 

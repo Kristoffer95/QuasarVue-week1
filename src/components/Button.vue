@@ -1,5 +1,5 @@
 <template>
-  <div class="button px-16 py-3 rounded-lg cursor-pointer font-normal text-base text-center" 
+  <div class="w-32 button py-3 rounded-lg cursor-pointer font-normal text-base text-center" 
     :style="`
       background-color: ${bgColor};
       color: ${color};

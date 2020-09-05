@@ -1,31 +1,30 @@
 <template>
-  <div class="interface-form bg-white rounded-lg px-24 pt-12">
-
-    <span class="text-bold text-xl">{{ componentData.title }}</span>
+  <div class="interface-form bg-white rounded-lg pt-8 relative">
+    <span class="px-12 text-bold text-xl">{{ componentData.title }}</span>
     
-    <div class="w-full flex flex-col mt-8">
+    <div class="px-12 w-full flex flex-col mt-8">
       <div class="flex flex-col ">
-        <span class="interface-form-label ">Name</span>
+        <span class="interface-form-label font-bold">Name</span>
         <input class="interface-form-input outline-none"
           type="text" placeholder="Enter name">
       </div>
       <div class="flex flex-col mt-2">
-        <span class="interface-form-label ">Description</span>
+        <span class="interface-form-label font-bold">Description</span>
         <input class="interface-form-input outline-none"
           type="text" placeholder="Enter description">
       </div>
       <div class="flex flex-col mt-2">
-        <span class="interface-form-label ">Path</span>
+        <span class="interface-form-label font-bold">Path</span>
         <input class="interface-form-input outline-none"
           type="text" placeholder="Enter path">
       </div>
       <div class="flex flex-col mt-2">
-        <span class="interface-form-label ">Params</span>
+        <span class="interface-form-label font-bold">Params</span>
         <input class="interface-form-input outline-none"
           type="text" placeholder="Enter params">
       </div>
       <div class="flex flex-col mt-2">
-        <span class="interface-form-label textarea-label ">Outputs</span>
+        <span class="interface-form-label textarea-label font-bold">Outputs</span>
         <textarea class="w-full h-full border p-2 outline-none rounded-lg"
           placeholder="Api response"
           rows="3"
@@ -33,7 +32,7 @@
       </div>
     </div>
 
-    <div class="w-full mt-2">
+    <div class="px-12 w-full mt-2">
       <div class="w-2/5 flex justify-between">
         <span class="interface-form-tab cursor-pointer font-semibold">Example 1</span>
         <span class="interface-form-tab cursor-pointer font-semibold">Example 2</span>
@@ -43,14 +42,15 @@
         name="outputs" ></textarea>
     </div>
 
-    <div class="w-1/2">
-      <Button class="mt-4"
-      text="Save" @click.native=""/>
+    <div class="interface-form-footer px-12 w-full flex justify-end pb-6 mt-2">
+      <Button class="interface-form-button mt-4"
+        text="Save" @click.native=""/>
     </div>
+
   </div>
 </template>
 
-<script lang="ts">
+<script >
 import 'assets/css/tailwind.css'
 import { defineComponent, ref } from '@vue/composition-api'
 import Button from './Button.vue'
@@ -71,14 +71,15 @@ export default defineComponent({
     return {
     }
   },
-  methods: {}
+  methods: {
+  }
 })
 </script>
 
 <style>
 .interface-form{
-  width: 600px;
-  height: 800px;
+  width: 500px;
+  /* height: 00px; */
   border: 1px solid #ececf2;
 }
 .interface-form-label {
@@ -104,5 +105,12 @@ export default defineComponent({
 .interface-form-tab:hover {
   color: #5e81f4;
   border-bottom: 1px solid #1b51e5;
+}
+.interface-form-footer {
+  background-color: #f5f5fa;
+}
+.interface-form-button {
+  width: 150px;
+  padding: 10px 0px !important;
 }
 </style>

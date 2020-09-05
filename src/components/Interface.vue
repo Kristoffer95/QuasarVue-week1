@@ -1,9 +1,11 @@
 <template>
-  <div class="interface w-screen flex flex-col justify-center items-center">
+  <div class="interface flex flex-col justify-center items-center">
 
     <div class="interface-buttons mt-20 flex justify-between">
-      <Button text="New" @click.native="create"/>
-      <Button text="Edit / Delete" @click.native="edit"/>
+      <Button class="button-style"
+        text="New" @click.native="create"/>
+      <Button class="button-style"
+        text="Edit / Delete" @click.native="edit"/>
     </div>
     
     <!-- <div class="inner-width bg-white mt-20 form-style rounded-lg">
@@ -19,7 +21,7 @@ import Button from 'components/Button.vue'
 import { EventBus } from 'components/event-bus'
 
 export default defineComponent({
-  name: 'PageInterface',
+  name: 'Interface',
   components: {
     Button
   },
@@ -43,6 +45,13 @@ export default defineComponent({
 <style>
   .interface-buttons {
     width: 450px;
+  }
+</style>
+
+<style scoped>
+  .button-style {
+    /* width: 150px; */
+    padding: 10px 0px !important;
   }
 </style>
 

@@ -1,12 +1,13 @@
 <template>
   <div class="header bg-white w-full h-12 flex justify-between">
-    <div class="w-1/2 flex items-center pl-4">
+    <div class="flex items-center pl-4">
       <!-- logo area -->
-      <span class="w-10 h-10 bg-blue-500 rounded-full cursor-pointer"></span>
+      <!-- <span class="w-10 h-10 bg-blue-500 rounded-full cursor-pointer"></span> -->
     </div>
-    <div class="w-1/2 flex items-center justify-end pr-4">
+    <div class="flex items-center justify-end pr-4">
       <span class="header-nav pl-8 text-base font-medium cursor-pointer"
-        v-for="(link, index) in navLinks" :key="index" @click="goToPage(link)">
+        v-for="(link, index) in navLinks" :key="index"
+        @click="goToPage(link)">
         {{ link.name | capitalize }}
       </span>
     </div>
@@ -21,12 +22,12 @@ const linksData = [
   {
     navName: 'Front-end',
     name: 'frontend',
-    path: '/'
+    path: '/detail'
   },
   {
     navName: 'Interface',
     name: 'interface',
-    path: '/interface'
+    path: '/detail'
   },
   {
     navName: 'Communication',
@@ -36,7 +37,7 @@ const linksData = [
   {
     navName: 'Bug',
     name: 'bug',
-    path: '/bug'
+    path: '/detail'
   }
 ]
 
@@ -51,7 +52,13 @@ export default defineComponent({
   },
   methods: {
     goToPage(link: any) {
-      this.$router.push({ name : link.name})
+      if(link.name !== 'interface') return
+      const props  ={
+        component: link.name
+      };
+      this.$router.replace({
+        query: props
+      })
     }
   },
   filters: {

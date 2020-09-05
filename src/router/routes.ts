@@ -3,18 +3,20 @@ import { RouteConfig } from 'vue-router'
 const routes: RouteConfig[] = [
   {
     path: '/',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [
-      { name: 'frontend', path: '/frontend', component: () => import('pages/Frontend.vue') },
-      { name: 'interface', path: '/interface', component: () => import('pages/Interface.vue') },
-      { name: 'communication', path: '/communication', component: () => import('pages/Communication.vue') },
-      { name: 'bug', path: '/bug', component: () => import('pages/Bug.vue') }
-    ]
+    redirect: 'detail'
+    // children: [
+      // { name: 'frontend', path: '/project-detail/frontend', component: () => import('pages/Frontend.vue') },
+      // { name: 'communication', path: '/project-detail/communication', component: () => import('pages/Communication.vue') },
+      // { name: 'bug', path: '/bug', component: () => import('pages/Bug.vue') }
+    // ]
   },
   {
-    path: '/project-detail',
+    path: '/detail',
+    name: 'detaill',
     component: () => import('layouts/ProjectDetailLayout.vue'),
     children: [
+      // { name: 'interface', path: '/interface', component: () => import('pages/Interface.vue') },
+
     ]
   },
 

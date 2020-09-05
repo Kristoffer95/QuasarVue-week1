@@ -1,11 +1,13 @@
 <template>
-  <div class="project-detail w-screen h-screen">
+  <div class="project-detail w-screen h-screen flex">
     
-    <!-- <Header /> -->
+    <!-- left -->
+    <PDetailLayout-left class="h-full border"/>
 
-    <div>
+    <div class="flex-1">
       <router-view />
     </div>
+    <PDetailLayout-right class="flex-1"/>
   </div>
 </template>
 
@@ -18,7 +20,8 @@ import { defineComponent, ref } from '@vue/composition-api'
 export default defineComponent({
   name: 'MainLayout',
   components: { 
-    // Header 
+    'PDetailLayout-left': () => import(`components/PDetailLayout_left.vue`),
+    'PDetailLayout-right': () => import(`components/PDetailLayout_right.vue`)
   },
   setup () {
 

@@ -28,10 +28,8 @@ export default defineComponent({
   },
   setup () {
     const modalStatus = ref(false)
-    const componentName = ref('')
     return {
       modalStatus,
-      componentName: 'InterfaceForm',
       componentData: {
         name: '',
         title: ''
@@ -63,7 +61,7 @@ export default defineComponent({
 }
 
 .modal-close-icon::before {
-  display:initial;
+  display: initial;
   cursor: pointer;
   margin: 0px !important;
   padding: 5px !important;

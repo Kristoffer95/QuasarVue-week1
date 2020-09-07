@@ -31,6 +31,10 @@
         <i class="icon-add text-5xl"></i>
       </div>
     </div>
+
+    <div>
+      
+    </div>
     
   </div>
 </template>

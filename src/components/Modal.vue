@@ -24,8 +24,10 @@ export default defineComponent({
   name: 'Header',
   mixins: [ clickaway ],
   components: {
-    InterfaceForm: () => import(`components/InterfaceForm.vue`),
-    ListForm: () => import(`components/ListForm.vue`)
+    InterfaceApiForm: () => import(`components/InterfaceApiForm.vue`),
+    ListAdd: () => import(`components/ListAdd.vue`),
+    ListEdit: () => import(`components/ListEdit.vue`),
+    ListDelete: () => import(`components/ListDelete.vue`)
   },
   setup () {
     const modalStatus = ref(false)

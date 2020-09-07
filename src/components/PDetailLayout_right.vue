@@ -1,7 +1,8 @@
 <template>
   <div class="detail-layout-left">
     <Header />
-    <component :is="$route.query.component" />
+    <component class="PDetailLayout-right bg-white"
+      :is="$route.query.component" />
   </div>
 </div>
 </template>
@@ -16,6 +17,7 @@ export default defineComponent({
   components: {
     Header,
     Interface: () => import(`components/Interface.vue`),
+    Communication: () => import(`components/Communication.vue`),
   },
   setup () {
     
@@ -24,8 +26,9 @@ export default defineComponent({
 })
 </script>
 
-<style>
-.detail-layout-left {
-  border-left: 1px solid #ececf2;
+<style scoped>
+.PDetailLayout-right {
+  border-radius: 17px;
+  /* border-left: 1px solid #ececf2; */
 }
 </style>

@@ -1,10 +1,10 @@
 <template>
-  <div class="w-32 button py-3 rounded-lg cursor-pointer font-normal text-base text-center" 
+  <div class="button py-3 rounded-lg cursor-pointer font-normal text-center" 
     :style="`
       background-color: ${bgColor};
       color: ${color};
     `">
-    {{ text }}
+      <span class="px-10">{{ text }}</span>
   </div>
 </template>
 

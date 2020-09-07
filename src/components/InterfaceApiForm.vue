@@ -57,7 +57,7 @@ import Button from './Button.vue'
 
 
 export default defineComponent({
-  name: 'InterfaceForm',
+  name: 'InterfaceApiForm',
   components: {
     Button
   },
@@ -113,7 +113,7 @@ export default defineComponent({
   background-color: #f5f5fa;
 }
 .interface-form-button {
-  width: 150px;
+  /* width: 150px; */
   padding: 10px 0px !important;
 }
 </style>

@@ -1,9 +1,9 @@
 <template>
-  <div class="header bg-white w-full h-12 flex justify-between">
-    <div class="flex items-center pl-4">
+  <div class="header w-full h-12 flex justify-center">
+    <!-- <div class="flex items-center pl-4"> -->
       <!-- logo area -->
       <!-- <span class="w-10 h-10 bg-blue-500 rounded-full cursor-pointer"></span> -->
-    </div>
+    <!-- </div> -->
     <div class="flex items-center justify-end pr-4">
       <span class="header-nav pl-8 text-base font-medium cursor-pointer"
         v-for="(link, index) in navLinks" :key="index"
@@ -52,13 +52,13 @@ export default defineComponent({
   },
   methods: {
     goToPage(link: any) {
-      if(link.name !== 'interface') return
-      const props  ={
-        component: link.name
-      };
-      this.$router.replace({
-        query: props
-      })
+      if(!(['interface', 'communication'].includes(link.name))) return
+
+      const props  ={ component: link.name };
+      
+      this.$router
+        .replace({ query: props })
+        .catch(err => { if(err) return })
     }
   },
   filters: {
@@ -72,9 +72,9 @@ export default defineComponent({
 </script>
 
 <style>
-.header {
+/* .header {
   border-bottom: 1px solid#ececf2;
-}
+} */
 .header-nav {
   color: #5e81f4;
 }

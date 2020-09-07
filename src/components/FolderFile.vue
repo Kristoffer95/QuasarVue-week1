@@ -4,11 +4,11 @@
     <span class="tooltip text-md ml-5 flex">
       <span class="cursor-pointer">{{ file | capitalize }}</span>
       <span class='flex tooltip-text bg-white border justify-between rounded'>
-        <div class="tooltip-items flex flex-col">
-          <i class="icon-edit text-xl cursor-pointer"></i>
-          <span class="text-xs cursor-pointer ">Edit</span> 
+        <div class="tooltip-items flex flex-col" @click="listEdit">
+          <i class="icon-edit text-xl cursor-pointer" ></i>
+          <span class="text-xs cursor-pointer">Edit</span> 
         </div>
-        <div class="tooltip-items flex flex-col">
+        <div class="tooltip-items flex flex-col" @click="listDelete">
           <i class="icon-delete text-xl cursor-pointer"></i>
           <span class="text-xs cursor-pointer">Delete</span> 
         </div>
@@ -21,6 +21,7 @@
 <script>
 import 'assets/css/tailwind.css'
 import { defineComponent, ref } from '@vue/composition-api'
+import { EventBus } from 'components/event-bus'
 
 export default defineComponent({
   name: 'FolderFile',
@@ -36,6 +37,15 @@ export default defineComponent({
   },
   computed: {},
   methods: {
+    async showModal(component, title) {
+      await EventBus.$emit('show_modal', { component, title });
+    },
+    listEdit() {
+      this.showModal('ListEdit', 'Edit Page')
+    },
+    listDelete() {
+      this.showModal('ListDelete', 'Delete Page')
+    },
   },
   filters: {
     capitalize: function (value) {
@@ -51,18 +61,28 @@ export default defineComponent({
 <style scoped>
   .tooltip {
     position: relative;
+    padding-right: 7px;
   }
   .tooltip .tooltip-text {
     visibility: hidden;
     text-align: center;
-    /* display: flex; */
+    width: 100px;
+    padding: 5px 10px;
+    position: absolute;
+    top: -20px;
+    left: 47px;
+    z-index: 20;
+  }
+  /* .tooltip .tooltip-text {
+    visibility: hidden;
+    text-align: center;
     width: 100px;
     padding: 5px 10px;
     position: absolute;
     top: -60px;
     left: -20px;
     z-index: 20;
-  }
+  } */
   .tooltip:hover .tooltip-text {
     visibility: visible;
     /* color: #5e81f4; */

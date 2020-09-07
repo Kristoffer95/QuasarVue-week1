@@ -2,7 +2,7 @@
   <div class="detail-layout-left flex flex-col bg-white pl-4" >
     <div class="mt-4 flex">
       <span class="text-2xl mr-32">Modules</span>
-      <i class="add-list-icon icon-add text-xl cursor-pointer" @click="addList "></i>
+      <i class="add-list-icon icon-add text-xl cursor-pointer" @click="listAdd "></i>
     </div>
     <div class="flex items-center mt-6">
       <span class="dropdown-title font-bold mr-3">Port</span>
@@ -45,10 +45,9 @@ export default defineComponent({
     async showModal(component, title) {
       await EventBus.$emit('show_modal', { component, title });
     },
-    addList() {
-      this.showModal('ListForm', 'New List')
-    }
-    
+    listAdd() {
+      this.showModal('ListAdd', 'New Page')
+    }  
   }
 })
 </script>

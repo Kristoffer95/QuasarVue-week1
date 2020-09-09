@@ -22,22 +22,18 @@ const linksData = [
   {
     navName: 'Front-end',
     name: 'frontend',
-    path: '/detail'
   },
   {
     navName: 'Interface',
     name: 'interface',
-    path: '/detail'
   },
   {
     navName: 'Communication',
     name: 'communication',
-    path: '/communication'
   },
   {
     navName: 'Bug',
     name: 'bug',
-    path: '/detail'
   }
 ]
 
@@ -52,7 +48,7 @@ export default defineComponent({
   },
   methods: {
     goToPage(link: any) {
-      if(!(['interface', 'communication'].includes(link.name))) return
+      if(!(['interface', 'communication', 'bug'].includes(link.name))) return
 
       const props  ={ component: link.name };
       

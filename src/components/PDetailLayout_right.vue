@@ -18,6 +18,7 @@ export default defineComponent({
     Header,
     Interface: () => import(`components/Interface.vue`),
     Communication: () => import(`components/Communication.vue`),
+    Bug: () => import(`components/Bug.vue`),
   },
   setup () {
     

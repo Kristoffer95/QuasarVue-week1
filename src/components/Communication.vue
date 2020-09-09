@@ -32,14 +32,32 @@
       </div>
     </div>
 
-    <div>
+    <div class=" w-full p-12 bg-gray-300 flex justify-center mt-12 rounded-lg" @dragover="dragover" @dragleave="dragleave" @drop="drop">
+      <input type="file" multiple name="fields[assetsFieldHandle][]" id="assetsFieldHandle" 
+        class="w-px h-px opacity-0 overflow-hidden absolute" @change="onChange" ref="file" accept=".pdf,.jpg,.jpeg,.png" />
+
+      <label for="assetsFieldHandle" class="block cursor-pointer">
+        <div>
+          You can drop files in here or <span class="underline">click here</span> to upload a file
+        </div>
+      </label>
+      <ul class="mt-4" v-if="this.filelist.length" v-cloak>
+        <li class="text-sm p-1 text-center" v-for="(file, index) in filelist" :key="index">
+          {{file.name}}
+          <button type="button" @click="remove(filelist.indexOf(file))" title="Remove file">x</button>
+        </li>
+      </ul>
+
+      <!-- <textarea name="" id="" cols="30" rows="10" @paste="paste">
+        https://ourcodeworld.com/articles/read/491/how-to-retrieve-images-from-the-clipboard-with-javascript-in-the-browser
+      </textarea> -->
       
     </div>
     
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import 'assets/css/tailwind.css'
 import { defineComponent, ref } from '@vue/composition-api'
 import Button from 'components/Button.vue'
@@ -47,12 +65,15 @@ import { EventBus } from 'components/event-bus'
 
 
 export default defineComponent({
-  name: 'Interface',
+  name: 'Communication',
   components: {
     Button,
   },
   setup () {
-    return { }
+    let filelist = ref([]);
+    return {
+      filelist
+    }
   },
   methods: {
     // getImgUrl(img_name: string) {
@@ -65,19 +86,43 @@ export default defineComponent({
     // create() {
     //   this.showModal('InterfaceApiForm', 'New')
     // },
+    onChange() {
+      // this.filelist = [...this.$refs.file.files]; // NOTE: single file
+      this.filelist.push(...this.$refs.file.files);  // NOTE: multiple files
+    },
+    remove(i) {
+      this.filelist.splice(i, 1);
+    },
+    dragover(event) {
+      event.preventDefault();
+      // Add some visual fluff to show the user can drop its files
+      if (!event.currentTarget.classList.contains('bg-green-300')) {
+        event.currentTarget.classList.remove('bg-gray-100');
+        event.currentTarget.classList.add('bg-green-300');
+      }
+    },
+    dragleave(event) {
+      // Clean up
+      event.currentTarget.classList.add('bg-gray-100');
+      event.currentTarget.classList.remove('bg-green-300');
+    },
+    drop(event) {
+      event.preventDefault();
+      this.$refs.file.files = event.dataTransfer.files;
+      this.onChange(); // Trigger the onChange event manually
+      // Clean up
+      event.currentTarget.classList.add('bg-gray-100');
+      event.currentTarget.classList.remove('bg-green-300');
+    },
+    paste(event) {
+      console.log(event.clipboardData.files)
+      event.preventDefault();
+      this.$refs.file.files = event.clipboardData.files;
+      this.onChange();
+    },
   }
 })
 </script>
-
-<style>
-img {
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-}
-</style>
 
 <style scoped>
   .communication {
